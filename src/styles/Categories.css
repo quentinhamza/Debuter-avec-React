@@ -1,8 +1,28 @@
 .lmj-categories {
-	text-align: center;
-	padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .lmj-categories-select {
-	margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.lmj-categories button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.lmj-categories button:hover {
+    background-color: #45a049;
+}
+
+.lmj-categories button:active {
+    background-color: #3e8e41;
 }

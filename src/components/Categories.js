@@ -1,21 +1,27 @@
 import '../styles/Categories.css'
 
-function Categories({ setActiveCategory, categories, activeCategory }) {
+function Categories({ setActiveCategories, categories, activeCategories }) {
+	const handleCheckboxChange = (category) => {
+		if (activeCategories.includes(category)) {
+			setActiveCategories(activeCategories.filter((cat) => cat !== category))
+		} else {
+			setActiveCategories([...activeCategories, category])
+		}
+	}
+
 	return (
 		<div className='lmj-categories'>
-			<select
-				value={activeCategory}
-				onChange={(e) => setActiveCategory(e.target.value)}
-				className='lmj-categories-select'
-			>
-				<option value=''>---</option>
-				{categories.map((cat) => (
-					<option key={cat} value={cat}>
-						{cat}
-					</option>
-				))}
-			</select>
-			<button onClick={() => setActiveCategory('')}>Réinitialiser</button>
+			{categories.map((category) => (
+				<div key={category}>
+					<input
+						type='checkbox'
+						checked={activeCategories.includes(category)}
+						onChange={() => handleCheckboxChange(category)}
+					/>
+					{category}
+				</div>
+			))}
+			<button onClick={() => setActiveCategories([])}>Réinitialiser</button>
 		</div>
 	)
 }
